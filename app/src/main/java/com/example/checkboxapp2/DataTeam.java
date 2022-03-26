@@ -8,7 +8,7 @@ public class DataTeam {
     private DatabaseReference databaseReference;
 
     public DataTeam(){
-        DatabaseReference db =FirebaseDatabase.getInstance().getReference("team");//.getReference(team.class.getName())
+        DatabaseReference db =FirebaseDatabase.getInstance().getReference("team"); //.getReference(team.class.getName())
         this.databaseReference=db;
     }
 
