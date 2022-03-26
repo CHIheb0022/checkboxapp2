@@ -9,23 +9,31 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     private static final int  score_task1 = 10, score_task2 = 20,
             score_task3 = 30, score_task4 = 40,
             score_task5 = 50, score_task6 = 60,
             score_task7 = 70, score_task8 = 80,
             score_task9 = 90;
-    EditText team_name;
+    EditText team_name,team_id;
     CheckBox cb1, cb2, cb3, cb4,cb5,cb6,cb7,cb8,cb9; //checkboxes
     ImageButton btnReset, btnSubmit;
+    Map<String,team> teams = new HashMap<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        team_name=findViewById(R.id.name);
+        team_id=findViewById(R.id.team_id);
+        team_name=findViewById(R.id.team_name);
 
         cb1 = findViewById(R.id.checkBox1);
         cb2 = findViewById(R.id.checkBox2);
@@ -34,13 +42,12 @@ public class MainActivity extends AppCompatActivity {
         cb5 = findViewById(R.id.checkBox5);
         cb6 = findViewById(R.id.checkBox6);
         cb7 = findViewById(R.id.checkBox7);
-        cb8 = findViewById(R.id.checkBox8);
-        cb9 = findViewById(R.id.checkBox9);
+        //cb8 = findViewById(R.id.checkBox8);
+        //cb9 = findViewById(R.id.checkBox9);
 
         btnReset = findViewById(R.id.imageButton1);
         btnSubmit = findViewById(R.id.imageButton2);
 
-        DataTeam dataTeam= new DataTeam();
 
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -69,19 +76,18 @@ public class MainActivity extends AppCompatActivity {
                 if (cb7.isChecked()) {
                     score +=score_task7;
                 }
-                if (cb8.isChecked()) {
-                    score += score_task8;
-                }
-                if (cb9.isChecked()) {
-                    score += score_task9;
-                }
-            team t=new team(team_name.getText().toString(),score);
-            dataTeam.add(t).addOnSuccessListener(suc->
+
+                team t=new team(team_name.getText().toString(),score);
+                teams.put(team_id.getText().toString(),t);
+                DatabaseReference teamsRef = FirebaseDatabase.getInstance().getReference().child("teams");
+                teamsRef.setValue(teams).addOnSuccessListener(suc-> // set to add or update
                     {
                         Toast.makeText(MainActivity.this, "score added successfully", Toast.LENGTH_SHORT).show();
                     }).addOnFailureListener(er-> {
                         Toast.makeText(MainActivity.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
                     });
+                // 2nd method : (without using a map)
+                //teamsRef.child(team_id.getText().toString()).setValueAsync(new team(team_name.getText().toString(),score));
             }
         });
 
@@ -157,18 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 else
                     Log.d("CheckBox7", "Uncheched");
                 break;
-            case R.id.checkBox8:
-                if (checked)
-                    Log.d("CheckBox8", "Checked");
-                else
-                    Log.d("CheckBox8", "Uncheched");
-                break;
-            case R.id.checkBox9:
-                if (checked)
-                    Log.d("CheckBox9", "Checked");
-                else
-                    Log.d("CheckBox9", "Uncheched");
-                break;
+
         }
     }
 }
