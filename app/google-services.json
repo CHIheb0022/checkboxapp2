@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "647077721811",
+    "project_id": "checkboxapp2",
+    "storage_bucket": "checkboxapp2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647077721811:android:e91c2efe9ffb9bdd198626",
+        "android_client_info": {
+          "package_name": "com.example.checkboxapp2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647077721811-0lh1tskvachsr0m2q5bda8hh67se1k03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcc3S8L0slWnpcznq7dLIkIrDGWw4kYu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647077721811-0lh1tskvachsr0m2q5bda8hh67se1k03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
