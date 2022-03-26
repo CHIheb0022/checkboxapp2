@@ -7,9 +7,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class DataTeam {
     private DatabaseReference databaseReference;
 
-    public DataTeam(){
-        DatabaseReference db =FirebaseDatabase.getInstance().getReference("team"); //.getReference(team.class.getName())
-        this.databaseReference=db;
+    public DataTeam() {
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("teams"); //.getReference(team.class.getName())
+        this.databaseReference = db;
     }
 
     public DatabaseReference getDatabaseReference() {

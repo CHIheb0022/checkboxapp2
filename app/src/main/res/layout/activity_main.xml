@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/team_name"
+            android:text="Team id"
             android:textColor="@color/purple_700"
             android:textSize="20dp"
             />
@@ -27,7 +27,24 @@
 
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/team_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team name"
+            android:textColor="@color/purple_700"
+            android:textSize="20dp"
+            />
+
+
+
+        <EditText
+            android:id="@+id/team_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
@@ -79,18 +96,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/checkbox7"
-            android:onClick="onCheckBoxClicked" />
-        <CheckBox
-            android:id="@+id/checkBox8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/checkbox8"
-            android:onClick="onCheckBoxClicked" />
-        <CheckBox
-            android:id="@+id/checkBox9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/checkbox9"
             android:onClick="onCheckBoxClicked" />
 
 

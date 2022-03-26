@@ -4,6 +4,7 @@ public class team {
     private String name;
     private int score;
 
+
     public team(String name, int score){
         this.name=name;
         this.score=score;
